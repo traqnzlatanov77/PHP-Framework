@@ -3,21 +3,21 @@ session_start();
 require_once('includes/config.php');
 
 $requestParts = [];
-$requestParts = array_filter(explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)));
+$requestParts = explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
 $controllerName = DEFAULT_CONTROLLER;
 
-if (count($requestParts) > 0) {
+if (count($requestParts) >= 2 && $requestParts[1] != '') {
 	$controllerName = $requestParts[1];
 }
 
 $action = DEFAULT_ACTION;
 
-if (count($requestParts) > 1) {
+if (count($requestParts) >= 3 && $requestParts[2] != '') {
 	$action = $requestParts[2];
 }
 
-$params = array_splice($requestParts, 2);
+$params = array_splice($requestParts, 3);
 
 $controllerClassName = ucfirst($controllerName) . 'Controller';
 $controllerFileName = "controllers/" . $controllerClassName . '.php';

@@ -6,5 +6,22 @@
 	</div>
 <?php endif; ?>
 
+<div id="books">
+	
+</div>
+
+<button class="btn btn-info btn-lg" id="show-books">Show books</button>
+
+<script>
+	$("#show-books").on('click', function(ev) {
+		$.ajax({
+			url: '/books/showBooks',
+			method: 'GET'
+		}).success(function(data) {
+			$('#books').html(data);
+		})
+	})
+</script>
+
 
 
