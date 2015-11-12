@@ -18,7 +18,12 @@ class AuthorsController extends BaseController {
 		$this->authorize();
 
 		if ($this->is_post) {
-			$name = $_POST[author_name];
+			$name = $_POST['author_name'];
+			if (strlen($name) < 5) {
+				$this->addValidationError('author_name', 'Author name length should be grater than 2');
+				$this->render_view(__FUNCTION__);
+			}
+
 			if ($this->db->createAuthor($name)) {
 				$this->addInfoMessage("Author created");	
 				$this->redirect("authors");

@@ -6,6 +6,7 @@ abstract class BaseController {
 	protected $is_view_rendered = false;
 	protected $is_post = false;
 	protected $isLoggedIn;
+	protected $validationErrors;
 
 	function __construct($controller_name) {
 		$this->controller_name = $controller_name;
@@ -71,6 +72,14 @@ abstract class BaseController {
 			$this->addErrorMessage("Please login");
 			$this->redirect("account", "login");
 		}
+	}
+
+	public function addValidationError($field, $message) {
+		$this->validationErrors[$field] = $message;
+	}
+
+	public function getValidationError($field) {
+		return $this->validationErrors[$field];
 	}
 
 	function addMessage($msg, $type) {
