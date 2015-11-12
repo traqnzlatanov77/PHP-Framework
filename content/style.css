@@ -1,0 +1,45 @@
+h1 {
+	text-align: left;
+}
+
+body>footer {
+	background: #eee;
+	padding: 5px;
+	text-align: center;
+	vertical-align: bottom;
+	width: 100%;
+	height: 100%;
+	bottom: 0px;
+}
+
+body>header a>img {
+	height: 20px;
+}
+
+body>header>a, body>header ul, body>header ul>li {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#logged-in-info {
+	float: right;
+	vertical-align: middle;
+}
+
+#logged-in-info form {
+	display: inline-block;
+}
+
+#log-reg-container {	
+	text-align: center;
+}
+
+#login-btn, #register-btn {
+	width: 200px;
+}
+
+
+#user-info-name {
+	padding: 10px;
+	margin: 10px;
+}
