@@ -10,7 +10,7 @@
 	
 </div>
 
-<button class="btn btn-info btn-lg" id="show-books">Show books</button>
+<button class="btn btn-info btn-lg" id="show-books">Show all books</button>
 
 <script>
 	$("#show-books").on('click', function(ev) {
